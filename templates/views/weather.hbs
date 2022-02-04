@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>headerlinks}};
+</head>
+<body>
+    {{>navbar}};
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="column-md-10 col-12 max-auto">
+                <div class="main_content">
+                    <form class="temp_form">
+                        <input type="text" id="cityname" placeholder="Enter Your City Name" autocomplete="off">
+                        <input type="submit" value="search" id="submitbtn">
+                    </form>
+                </div>
+                <div class="tempInformation">
+                    <div class="top_layer">
+                        <p id="day">Tuesday</p>
+                        <p id="today_date">02 aug</p>
+                    </div>
+                    <div class="main_layer ">
+                        <p id="city_name">Get Output Here</p>
+                        <div class="middle_layer data_hide">
+                            <p id="temp"><span id="temp_real_val">0</span><sup>0</sup>C</p>
+                            <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>footer}};
+    <script src="js/main.js">
+   
+    </script>
+    <script>
+      
+         const getCurrentDay=()=>{
+            const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+            let currentTime=new Date();
+            let days=weekday[currentTime.getDay()];
+            let day=document.getElementById('day');
+           day.innerText=days;
+        };
+        const getCurrentTime=()=>{
+            const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+            let d = new Date();
+           
+            
+            let monthe = months[d.getMonth()];
+            console.log(monthe);
+            /*{{!-- var date=d.getDate();
+            var hours=d.getHours();
+            var mins=d.getMinutes();
+            let period="AM";
+            if(hours>11){
+                period="PM";
+                if(hours>12)
+                hours-=12;
+            }
+            if(mins<10){
+                mins="0"+mins;
+            } --}}*/
+            let day_date=document.getElementById('day_date');
+            day_date.innerText=monthe;
+           //return ` ${month} ${date} | ${hours}:${mins}${period}`;
+            //console.log(month +"/"+day);
+              
+        };
+        getCurrentDay()+getCurrentTime();
+        
+      
+
+
+    </script>
+</body>
+</html>
